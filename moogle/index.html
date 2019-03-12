@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<title>Moogle</title>
+</head>
+<body onload="hihi()">
+	<!--background-image:url('https://static.vecteezy.com/system/resources/previews/000/225/513/non_2x/cow-print-vector.jpg') -->
+	<div id="wrapper" style="position: absolute; width:100%; height:100%">
+		<img src="./logo.png" style="margin-left: auto;margin-right: auto;display: block; margin-top: 100px" />
+		<input id="inputSearch" type="text" placeholder="Say moo moo..." style="margin-left: auto;margin-right: auto;display: block; width:50vw; border-radius: 30px; font-size:30px; padding: 20px; border: thin solid gray" />
+		<button style="margin-left: auto;margin-right: auto;display: block; width:30vw; border-radius: 10px; font-size:30px; padding: 10px; border: thin solid gray; margin-top:50px; color:gray" id="btn">Tìm với Moogle</button>
+		
+		<div id="result" style="position: absolute; width:90vw; margin-left:5vw; margin-right:5vw">
+			
+		</div>
+	</div>
+</body>
+<script>
+	function hihi(){
+		var count = 0;
+		document.getElementById("btn").onclick = function(){
+			if(document.getElementById("inputSearch").value == ""){
+				alert("Hỏi gì đi ạ!!!!");
+			}else{
+				if(count==0){
+					addResult("Câu này không biết cơ mà thịt bò ngon lắm!");
+				}else if(count==1){
+					addResult("Câu này cũng không biết cơ mà thịt bò ngon lắm lắm!");
+				}else if(count==2){
+					addResult("Câu này cũng không biết nốt cơ mà thịt bò ngon lắm lắm lắm!");
+				}else if(count==3){
+					addResult("Không biết thật mà!!!");
+				}else if(count==4){
+					addResult("Vẫn hỏi nữa hả?");
+				}else{
+					addResult("Thịt bò ngon lắm :-***");
+				}
+				count++;
+			}
+		};
+	}
+	
+	function addResult(text){
+		var div = document.getElementById("result");
+		var d = document.createElement("div");
+		d.setAttribute("style", "display:block;border-radius:5px; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46); padding: 8px; border-bottom: 0 none;margin-top:2vh");
+		var p = document.createElement("p");
+		p.innerHTML = text;
+		p.setAttribute("style", "font-size: 40px; color: blue; font-family: Arial, Helvetica, sans-serif;margin-left:20px");
+		var p1 = document.createElement("p");
+		p1.innerHTML = "Bảo rồi ko tinnnn";
+		p1.setAttribute("style", "font-size: 30px; color: gray; font-family: Arial, Helvetica, sans-serif;margin-left:20px");
+		d.appendChild(p);
+		d.appendChild(p1);
+		div.appendChild(d);
+	}
+	
+</script>
+</html>
